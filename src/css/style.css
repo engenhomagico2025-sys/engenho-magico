@@ -2665,8 +2665,35 @@ main>section {
   transform: scale(1.1);
 }
 
+.lightbox__nav:focus-visible,
+.lightbox__close:focus-visible {
+  outline: 3px solid var(--cor-laranja-magico);
+  outline-offset: 3px;
+}
+
+.lightbox__nav:active:not(:disabled) img {
+  transform: scale(0.96);
+}
+
+.lightbox__nav:disabled {
+  opacity: 0.22;
+  cursor: not-allowed;
+}
+
 .lightbox__nav--prev {
   left: var(--space-md);
+}
+
+.lightbox__nav--prev img {
+  transform: rotate(180deg);
+}
+
+.lightbox__nav--prev:hover:not(:disabled) img {
+  transform: rotate(180deg) scale(1.1);
+}
+
+.lightbox__nav--prev:active:not(:disabled) img {
+  transform: rotate(180deg) scale(0.96);
 }
 
 .lightbox__nav--next {
@@ -2689,6 +2716,40 @@ main>section {
 
 .projeto-visualizer__image {
   cursor: zoom-in;
+}
+
+@media (max-width: 768px) {
+  .lightbox__top-bar {
+    padding: 14px 16px;
+  }
+
+  .lightbox__close {
+    top: 10px;
+    right: 10px;
+  }
+
+  .lightbox__nav {
+    top: auto;
+    bottom: 18px;
+    width: 52px;
+    height: 52px;
+    padding: 10px;
+    border-radius: 50%;
+    background: rgba(244, 237, 224, 0.9);
+  }
+
+  .lightbox__nav img {
+    width: 32px;
+    height: 32px;
+  }
+
+  .lightbox__nav--prev {
+    left: 18px;
+  }
+
+  .lightbox__nav--next {
+    right: 18px;
+  }
 }
 
 /* EDITORIAL GALLERY */

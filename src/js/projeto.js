@@ -136,7 +136,12 @@ document.addEventListener('DOMContentLoaded', () => {
         image: document.getElementById('projetoImage'),
         indicator: document.getElementById('pageIndicator'),
         btnPrev: document.getElementById('btnPrev'),
-        btnNext: document.getElementById('btnNext')
+        btnNext: document.getElementById('btnNext'),
+        lightbox: document.getElementById('lightbox'),
+        lightboxImage: document.getElementById('lightboxImage'),
+        lightboxCounter: document.getElementById('lightboxCounter'),
+        lightboxPrev: document.getElementById('lightboxPrev'),
+        lightboxNext: document.getElementById('lightboxNext')
     };
 
     let currentPageIndex = 0;
@@ -184,6 +189,26 @@ document.addEventListener('DOMContentLoaded', () => {
         elements.image.classList.remove('fade-out');
     }
 
+    function updateLightbox() {
+        elements.lightboxImage.src = projectData.pages[currentPageIndex];
+        elements.lightboxImage.alt = `${projectData.title}, página ${currentPageIndex + 1} de ${totalPages}`;
+        elements.lightboxCounter.textContent = `${currentPageIndex + 1} / ${totalPages}`;
+        elements.lightboxPrev.disabled = currentPageIndex === 0;
+        elements.lightboxNext.disabled = currentPageIndex === totalPages - 1;
+    }
+
+    function showPreviousLightboxPage() {
+        if (currentPageIndex === 0) return;
+        currentPageIndex--;
+        updateLightbox();
+    }
+
+    function showNextLightboxPage() {
+        if (currentPageIndex === totalPages - 1) return;
+        currentPageIndex++;
+        updateLightbox();
+    }
+
     // Event Listeners for buttons
     elements.btnPrev.addEventListener('click', () => {
         if (currentPageIndex > 0) {
@@ -199,12 +224,22 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    elements.image.addEventListener('click', updateLightbox);
+    elements.lightboxPrev.addEventListener('click', showPreviousLightboxPage);
+    elements.lightboxNext.addEventListener('click', showNextLightboxPage);
+
     // Keyboard navigation (arrows)
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowLeft' && !elements.btnPrev.disabled) {
+        const lightboxIsOpen = elements.lightbox.classList.contains('active');
+
+        if (lightboxIsOpen && e.key === 'ArrowLeft') {
+            showPreviousLightboxPage();
+        } else if (lightboxIsOpen && e.key === 'ArrowRight') {
+            showNextLightboxPage();
+        } else if (!lightboxIsOpen && e.key === 'ArrowLeft' && !elements.btnPrev.disabled) {
             currentPageIndex--;
             updateGallery();
-        } else if (e.key === 'ArrowRight' && !elements.btnNext.disabled) {
+        } else if (!lightboxIsOpen && e.key === 'ArrowRight' && !elements.btnNext.disabled) {
             currentPageIndex++;
             updateGallery();
         }

@@ -247,11 +247,21 @@
             </ul>
         </div>
     </footer>
-    <div class="lightbox" id="lightbox">
-        <button class="lightbox__close" aria-label="Fechar" id="lightboxClose">
-            <img src="src/assets/img/icons/menu-fechar.webp" alt="Fechar">
+    <div class="lightbox" id="lightbox" tabindex="-1" role="dialog" aria-modal="true"
+        aria-label="Visualizador das páginas do projeto">
+        <div class="lightbox__top-bar">
+            <span class="lightbox__counter" id="lightboxCounter" aria-live="polite">1 / 1</span>
+            <button class="lightbox__close" aria-label="Fechar visualização" id="lightboxClose">
+                <img src="src/assets/img/icons/menu-fechar.webp" alt="" aria-hidden="true">
+            </button>
+        </div>
+        <button class="lightbox__nav lightbox__nav--prev" aria-label="Página anterior" id="lightboxPrev">
+            <img src="src/assets/img/icons/seta.webp" alt="" aria-hidden="true">
         </button>
         <img src="" alt="" class="lightbox__image" id="lightboxImage">
+        <button class="lightbox__nav lightbox__nav--next" aria-label="Próxima página" id="lightboxNext">
+            <img src="src/assets/img/icons/seta.webp" alt="" aria-hidden="true">
+        </button>
     </div>
 
     <script src="src/js/main.js"></script>

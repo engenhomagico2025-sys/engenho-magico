@@ -661,6 +661,12 @@ section {
   transform: scaleX(1);
 }
 
+/* Mantém o traço artesanal laranja sob os atalhos principais da página inicial. */
+.home-page .header__link::after {
+  background-color: var(--color-fire);
+  transform: scaleX(1);
+}
+
 /* ==========================================================================
    MOBILE MENU STYLES
    ========================================================================== */
@@ -778,6 +784,23 @@ section {
   letter-spacing: 0.05em;
   display: inline-block;
   transition: color var(--transition-fast);
+}
+
+.home-page .mobile-menu__link {
+  position: relative;
+}
+
+.home-page .mobile-menu__link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 100%;
+  height: 10px;
+  background-color: var(--color-fire);
+  -webkit-mask: var(--underline-1) center / 100% 100% no-repeat;
+  mask: var(--underline-1) center / 100% 100% no-repeat;
+  transform: scaleX(1);
 }
 
 .mobile-menu__cta {

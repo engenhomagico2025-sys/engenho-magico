@@ -1,0 +1,324 @@
+/* ==========================================================================
+   RESPONSIVE — ENGENHO MÁGICO
+   ========================================================================== */
+
+/* TABLETS (Up to 1024px) */
+@media (max-width: 1024px) {
+  :root {
+    --space-section: clamp(3rem, 6vw, 5rem);
+    --container-padding-desktop: 2rem;
+  }
+
+  .pillars__grid {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+
+  /* Solutions Overview (Tablet) */
+  .solutions-overview__grid {
+    gap: var(--space-sm);
+  }
+
+  .solution-card {
+    border-width: 12px;
+    border-image-width: 12px;
+  }
+
+  .solution-card__image {
+    margin: var(--space-sm);
+  }
+
+  .solution-card__content {
+    width: 68%;
+    padding: var(--space-xs) var(--space-sm) var(--space-xs) 0;
+  }
+
+  .about,
+  .who-we-are,
+  .solution-detail,
+  .contact__grid,
+  .footer__container {
+    gap: var(--space-xl);
+  }
+
+  .pillar {
+    padding: var(--space-md);
+  }
+}
+
+/* SMARTPHONES (Up to 768px) */
+@media (max-width: 768px) {
+  :root {
+    --container-padding-desktop: 1.25rem;
+    --space-section: 3rem;
+  }
+
+  img.section-title-divider {
+    margin-left: -30px;
+  }
+
+  /* Header */
+  .header {
+    padding: var(--space-xs) 0;
+  }
+
+  .header__container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .header__nav {
+    display: none;
+  }
+
+  .header__menu-btn {
+    display: block;
+  }
+
+  .header__cta {
+    display: none;
+  }
+
+  /* Page header padding for taller mobile header */
+  .page-hero {
+    padding-top: calc(var(--space-section) + 120px);
+  }
+
+  /* Grid split sections → single column */
+  .about,
+  .who-we-are,
+  .solution-detail__grid,
+  .contact__grid,
+  .footer__container {
+    grid-template-columns: 1fr;
+  }
+
+  .solution-detail--reversed .solution-detail__grid {
+    direction: ltr;
+  }
+
+  .about__image-wrapper,
+  .who-we-are__image {
+    min-height: 250px;
+    height: 300px;
+    order: -1;
+  }
+
+  .solution-detail__image {
+    min-height: 250px;
+    height: 300px;
+  }
+
+  /* Hero section mobile */
+  .hero__content {
+    padding: 0 var(--container-padding-desktop) var(--space-lg);
+  }
+
+  .hero__btn {
+    width: 100%;
+  }
+
+
+
+  /* Transform Grid Mobile */
+  .transform-row {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .transform-col,
+  .transform-col--right {
+    text-align: center;
+    width: 100%;
+  }
+  
+  .transform-arrow {
+    transform: rotate(90deg);
+    margin: 1rem auto;
+  }
+
+  /* Catalog Interactive Mobile */
+  .catalog-interactive {
+    aspect-ratio: auto;
+    flex-direction: column;
+    border-width: 8px;
+    border-image-width: 8px;
+    display: flex;
+  }
+  
+  .catalog-interactive__media {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    z-index: 1;
+  }
+  
+  .catalog-interactive__overlay {
+    background: linear-gradient(0deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0) 100%);
+  }
+
+  .catalog-interactive__mobile-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.5rem;
+    z-index: 4;
+  }
+
+  .catalog-interactive__mobile-title {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #F4EDE0;
+    margin: 0;
+  }
+
+  .catalog-interactive__counter--desktop {
+    display: none;
+  }
+
+  .catalog-interactive__content {
+    width: 100%;
+    height: auto;
+    padding: 1.5rem;
+  }
+
+  .catalog-interactive__nav-wrapper {
+    display: none; /* Hide vertical titles on mobile */
+  }
+  
+  .catalog-interactive__details {
+    margin-top: 0;
+  }
+  
+  .catalog-interactive__descriptions {
+    height: 120px;
+  }
+
+  .catalog-interactive__desc {
+    font-size: 0.95rem;
+  }
+
+  .catalog-interactive__controls {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    transform: translateY(-50%);
+    padding: 0 1rem;
+    z-index: 5;
+    pointer-events: none;
+  }
+
+  .catalog-interactive__arrow {
+    background: rgba(0,0,0,0.5);
+    border: none;
+    color: white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    pointer-events: auto;
+    transition: background 0.3s ease;
+  }
+
+  .catalog-interactive__arrow:hover {
+    background: rgba(0,0,0,0.8);
+  }
+
+  /* Solutions Overview (Mobile) */
+  .solutions-overview__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .solutions-overview__grid > :last-child:nth-child(odd) {
+    width: 100%;
+  }
+
+  .solution-card {
+    flex-direction: column;
+    align-items: center;
+    border-width: 16px;
+    border-image-width: 16px;
+  }
+
+  .solution-card__image {
+    width: 60%;
+    max-width: 220px;
+    margin: var(--space-md) auto 0;
+  }
+
+  .solution-card__content {
+    width: 100%;
+    padding: var(--space-md);
+  }
+
+  .solution-card__divider {
+    width: 40%;
+  }
+
+  /* Footer */
+  .footer__container {
+    text-align: center;
+  }
+
+  .footer__menu {
+    align-items: center;
+  }
+
+  .footer__legal {
+    width: 100%;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .footer__terms-menu {
+    justify-content: center;
+  }
+
+  .footer__brand {
+    margin: 0 auto var(--space-md);
+  }
+
+  /* Expertise */
+  .expertise {
+    min-height: 60vh;
+    padding-bottom: var(--space-xl);
+    padding-top: var(--space-xl);
+  }
+
+  .expertise__text {
+    font-size: var(--font-size-md);
+  }
+
+  /* Home Gallery Grid Mobile */
+  .home-gallery-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 12px;
+  }
+  .home-gallery-grid .gallery-item:first-child {
+    grid-column: 1 / 3;
+    grid-row: auto;
+    aspect-ratio: 4 / 3;
+  }
+  .home-gallery-grid .gallery-item:not(:first-child) {
+    aspect-ratio: 1 / 1;
+  }
+}
+
+/* SMALL SMARTPHONES (Up to 480px) */
+@media (max-width: 480px) {
+  .hero__title {
+    font-size: var(--font-size-3xl);
+  }
+}
